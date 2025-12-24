@@ -1,0 +1,69 @@
+/** @jsxImportSource @emotion/react */
+import { IoArrowBack } from "react-icons/io5";
+import * as s from "./styles";
+import { FaGoogle } from "react-icons/fa";
+import { SiNaver } from "react-icons/si";
+import { Link, useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+
+function SigninPage() {
+    const navigate = useNavigate();
+    return (
+        <div css={s.container}>
+            <div css={s.mainContainer}>
+                <div>
+                    <button onClick={() => navigate("/")}>
+                        <IoArrowBack />
+                        홈으로 가기
+                    </button>
+                </div>
+                <div css={s.signinBox}>
+                    <div css={s.topBox}>
+                        <h4>로그인</h4>
+                        <p>TechBoard에 오신 것을 환영합니다</p>
+                    </div>
+                    <div css={s.bottomBox}>
+                        <div css={s.inputBox}>
+                            <div>
+                                <label htmlFor="email">이메일</label>
+                                <input
+                                    id="email"
+                                    type="email"
+                                    placeholder="Your@email.com"
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="password">비밀번호</label>
+                                <input
+                                    id="password"
+                                    type="password"
+                                    placeholder="password"
+                                />
+                            </div>
+                            <button>로그인</button>
+                        </div>
+                        <div css={s.lineBox}>
+                            <span>또는</span>
+                        </div>
+                        <div css={s.buttonBox}>
+                            <button onClick={() => navigate("/auth/oauth2")}>
+                                <FcGoogle />
+                                구글로 로그인
+                            </button>
+                            <button>
+                                <SiNaver />
+                                네이버로 로그인
+                            </button>
+                        </div>
+                        <div css={s.signupBox}>
+                            계정이 없으신가요?{" "}
+                            <Link to={"/auth/signup"}>회원가입</Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default SigninPage;
