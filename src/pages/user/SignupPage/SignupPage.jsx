@@ -2,9 +2,83 @@
 import { useNavigate } from "react-router-dom";
 import * as s from "./styles";
 import { IoArrowBack } from "react-icons/io5";
+import { useState } from "react";
+import { signupRequest } from "../../../apis/auth/authApis";
 
 function SignupPage() {
     const navigate = useNavigate();
+    const [signupInputValue, setSignupInputValue] = useState({
+        username: "",
+        email: "",
+        password: "",
+        passwordConfirm: "",
+    });
+
+    const passwordRegex =
+        /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,16}$/;
+    //8자 이상 16자 미만, 영문자, 숫자 및 특수문자 포함
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+    //이메일 형식
+
+    const inputOnchangeHandler = (e) => {
+        const { name, value } = e.target;
+
+        setSignupInputValue((prev) => {
+            return {
+                ...prev,
+                [name]: value,
+            };
+        });
+    };
+    const signupOnClickHandler = () => {
+        if (
+            signupInputValue.username.trim().length === 0 ||
+            signupInputValue.email.trim().length === 0 ||
+            signupInputValue.password.trim().length === 0 ||
+            signupInputValue.passwordConfirm.trim().length === 0
+        ) {
+            alert("모든 항목을 입력해주세요");
+            return;
+        }
+        if (!emailRegex.test(signupInputValue.email)) {
+            alert("이메일 형식에 맞기 입력해주세요.");
+            return;
+        }
+
+        if (!passwordRegex.test(signupInputValue.password)) {
+            alert(
+                "비밀번호는 최소 8자리에서 16자리까지, 영문자, 숫자, 특수 문자를 포함해야 합니다"
+            );
+            return;
+        }
+
+        if (signupInputValue.password !== signupInputValue.passwordConfirm) {
+            alert("비밀번호가 일치 하지 않습니다.");
+            return;
+        }
+        if (!confirm("회원가입을 하시겠습니까?")) {
+            return;
+        }
+
+        signupRequest({
+            username: signupInputValue.username,
+            email: signupInputValue.email,
+            password: signupInputValue.password,
+        })
+            .then((response) => {
+                if (response.data.status === "success") {
+                    alert(response.data.message);
+                    navigate("/auth/signin");
+                } else if (response.data.status === "failed") {
+                    alert(response.data.message);
+                    return;
+                }
+            })
+            .catch((error) => {
+                alert("문제가 발생 했습니다. 다시 시도해주세요.");
+                return;
+            });
+    };
     return (
         <div css={s.container}>
             <div css={s.mainContainer}>
@@ -23,32 +97,44 @@ function SignupPage() {
                         <div>
                             <label htmlFor="">이름</label>
                             <input
+                                name="username"
                                 type="text"
                                 placeholder="사용자이름을 입력해주세요"
+                                onChange={inputOnchangeHandler}
+                                value={signupInputValue.username}
                             />
                         </div>
                         <div>
                             <label htmlFor="">이메일</label>
                             <input
+                                name="email"
                                 type="email"
                                 placeholder=" 이메일을 입력해주세요"
+                                onChange={inputOnchangeHandler}
+                                value={signupInputValue.email}
                             />
                         </div>
                         <div>
                             <label htmlFor="">비밀번호</label>
                             <input
+                                name="password"
                                 type="password"
                                 placeholder="비밀번호를 입력해주세요"
+                                onChange={inputOnchangeHandler}
+                                value={signupInputValue.password}
                             />
                         </div>
                         <div>
                             <label htmlFor="">비밀번호 확인</label>
                             <input
+                                name="passwordConfirm"
                                 type="password"
                                 placeholder="비밀번호를 확인해주세요"
+                                onChange={inputOnchangeHandler}
+                                value={signupInputValue.passwordConfirm}
                             />
                         </div>
-                        <button>회원가입</button>
+                        <button onClick={signupOnClickHandler}>회원가입</button>
                     </div>
                 </div>
             </div>
