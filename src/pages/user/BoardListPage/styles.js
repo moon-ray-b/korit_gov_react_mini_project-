@@ -6,13 +6,8 @@ export const container = css`
     height: 100%;
     justify-content: center;
     align-items: center;
-    overflow: auto;
-    -ms-overflow-style: none;
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
 `;
+
 export const mainContainer = css`
     width: 1000px;
     height: 100%;
@@ -59,11 +54,11 @@ export const mainContainer = css`
             display: flex;
             justify-content: start;
             align-items: center;
+            gap: 12px;
             border: 1px solid #dbdbdb;
             padding: 4px 12px;
             box-sizing: border-box;
             border-radius: 8px;
-            gap: 12px;
             color: #0a0a0a;
 
             & > input {
@@ -75,10 +70,12 @@ export const mainContainer = css`
         }
     }
 `;
+
 export const listContainer = css`
     width: 100%;
     padding: 0 12px;
     box-sizing: border-box;
+
     & > ul {
         list-style: none;
         display: flex;
@@ -94,20 +91,23 @@ export const listContainer = css`
             border-radius: 14px;
             box-shadow: 0px 10px 15px 3px rgba(0, 0, 0, 0.1);
             cursor: pointer;
-            transition: all 0.15s ease;
+            transition: all 0.2s ease;
 
             &:hover {
                 box-shadow: 0px 20px 15px 3px rgba(0, 0, 0, 0.1);
             }
+
             & > div:nth-of-type(1) {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
+
                 & > h4 {
                     font-size: 20px;
                     font-weight: 400;
                     color: #0a0a0a;
                 }
+
                 & > p {
                     font-size: 16px;
                     font-weight: 300;
@@ -117,6 +117,7 @@ export const listContainer = css`
         }
     }
 `;
+
 export const boardBottomBox = css`
     display: flex;
     justify-content: space-between;
@@ -127,19 +128,25 @@ export const boardBottomBox = css`
         align-items: center;
         gap: 10px;
 
-        & > div {
-            width: 32px;
-            height: 32px;
-            border-radius: 50px;
-            background-color: aquamarine;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
         & > p {
             font-size: 14px;
             color: #0a0a0a;
         }
+    }
+`;
+
+export const profileImgBox = css`
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    & > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 `;

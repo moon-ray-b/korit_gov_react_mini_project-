@@ -6,6 +6,7 @@ export const container = css`
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #eef2ff;
     background: linear-gradient(
         90deg,
         rgba(238, 242, 255, 1) 0%,
@@ -13,6 +14,7 @@ export const container = css`
         rgba(253, 242, 248, 1) 100%
     );
 `;
+
 export const mainContainer = css`
     display: flex;
     flex-direction: column;
@@ -23,13 +25,13 @@ export const mainContainer = css`
         justify-content: center;
         align-items: center;
         gap: 5px;
-        padding: 5px 12x;
+        padding: 5px 12px;
         border: none;
         background-color: transparent;
         border-radius: 8px;
         color: oklch(0.446 0.03 256.802);
         cursor: pointer;
-        transition: all 0.15s ease;
+        transition: all 0.2s ease;
 
         &:hover {
             background-color: #f2f2f2;
@@ -37,12 +39,14 @@ export const mainContainer = css`
         }
     }
 `;
+
 export const signinBox = css`
     width: 448px;
     background-color: white;
     border-radius: 14px;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 `;
+
 export const topBox = css`
     padding: 24px;
     box-sizing: border-box;
@@ -52,15 +56,17 @@ export const topBox = css`
 
     & > h4 {
         font-size: 30px;
-        font-weight: 400px;
+        font-weight: 400;
         color: black;
     }
+
     & > p {
         font-size: 16px;
         font-weight: 300;
         color: #717182;
     }
 `;
+
 export const bottomBox = css`
     padding: 0 24px 24px;
     box-sizing: border-box;
@@ -68,6 +74,7 @@ export const bottomBox = css`
     flex-direction: column;
     gap: 30px;
 `;
+
 export const inputBox = css`
     display: flex;
     flex-direction: column;
@@ -91,6 +98,7 @@ export const inputBox = css`
             }
         }
     }
+
     & > button {
         border: none;
         padding: 8px 16px;
@@ -115,6 +123,7 @@ export const inputBox = css`
         }
     }
 `;
+
 export const lineBox = css`
     display: flex;
     justify-content: center;
@@ -135,7 +144,9 @@ export const lineBox = css`
         height: 1px;
         background-color: oklch(0.551 0.027 264.364);
     }
+
     & > span {
+        text-align: center;
         width: 40px;
         font-size: 12px;
         padding: 0 8px;
@@ -143,13 +154,14 @@ export const lineBox = css`
         color: oklch(0.551 0.027 264.364);
     }
 `;
+
 export const buttonBox = css`
     display: flex;
     flex-direction: column;
     gap: 12px;
 
     & > button {
-        border: 1px #dbdbdb;
+        border: 1px solid #dbdbdb;
         padding: 8px 16px;
         border-radius: 8px;
         font-size: 14px;
@@ -166,6 +178,7 @@ export const buttonBox = css`
         }
     }
 `;
+
 export const signupBox = css`
     display: flex;
     justify-content: center;

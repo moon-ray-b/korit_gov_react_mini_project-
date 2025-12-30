@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
-import { LuPen } from "react-icons/lu";
+import { IoClose, IoList } from "react-icons/io5";
 import * as s from "./styles";
-import { IoMdList } from "react-icons/io";
-import { IoClose } from "react-icons/io5";
+import { LuPen } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
+
 function SideBar({ setShowSideBar }) {
     const navigate = useNavigate();
     return (
@@ -21,7 +21,7 @@ function SideBar({ setShowSideBar }) {
                             navigate("/board/list");
                             setShowSideBar((prev) => !prev);
                         }}>
-                        <IoMdList />
+                        <IoList />
                         게시물 보기
                     </li>
                     <li

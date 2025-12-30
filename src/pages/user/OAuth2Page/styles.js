@@ -6,6 +6,7 @@ export const container = css`
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #eef2ff;
     background: linear-gradient(
         90deg,
         rgba(238, 242, 255, 1) 0%,
@@ -13,6 +14,7 @@ export const container = css`
         rgba(253, 242, 248, 1) 100%
     );
 `;
+
 export const mainContainer = css`
     display: flex;
     flex-direction: column;
@@ -22,7 +24,8 @@ export const mainContainer = css`
     border-radius: 14px;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 `;
-export const topbox = css`
+
+export const topBox = css`
     padding: 24px 24px 0;
     box-sizing: border-box;
     display: flex;
@@ -34,16 +37,19 @@ export const topbox = css`
     & > div {
         font-size: 50px;
     }
+
     & > h4 {
         color: oklch(51.1% 0.262 276.966);
         font-size: 40px;
         font-weight: 300;
     }
+
     & > p {
         font-size: 16px;
         color: #717182;
     }
 `;
+
 export const bottomBox = css`
     padding: 0 24px 24px;
     box-sizing: border-box;
@@ -58,6 +64,7 @@ export const bottomBox = css`
         border-radius: 8px;
         cursor: pointer;
     }
+
     & > button:nth-of-type(1) {
         background: #4f39f6;
         background: linear-gradient(
@@ -94,7 +101,7 @@ export const bottomBox = css`
         transition: all 0.15s ease;
 
         &:hover {
-            background-color: #e3eafc;
+            background-color: #f2f2f2;
         }
     }
 `;

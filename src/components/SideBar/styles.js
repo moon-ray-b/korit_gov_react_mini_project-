@@ -6,6 +6,7 @@ export const container = css`
     background-color: white;
     box-shadow: 10px 0px 20px 5px rgba(0, 0, 0, 0.1);
 `;
+
 export const topBox = css`
     width: 100%;
     height: 80px;
@@ -41,6 +42,7 @@ export const topBox = css`
         }
     }
 `;
+
 export const bottomBox = css`
     width: 100%;
 
@@ -61,8 +63,8 @@ export const bottomBox = css`
             font-size: 16px;
             color: #364153;
             border-radius: 10px;
-            transition: all 0.15s ease;
             cursor: pointer;
+            transition: all 0.15s ease;
 
             &:hover {
                 background-color: #f2f2f2;

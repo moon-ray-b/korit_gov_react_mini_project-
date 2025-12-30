@@ -1,4 +1,3 @@
-import { configs } from "eslint-plugin-react-hooks";
 import { instance } from "../utils/instance";
 
 export const getPrincipal = async () => {
@@ -8,6 +7,7 @@ export const getPrincipal = async () => {
         if (accessToken) {
             config.headers.Authorization = `Bearer ${accessToken}`;
         }
+
         return config;
     });
     try {
@@ -17,6 +17,7 @@ export const getPrincipal = async () => {
         return error.response;
     }
 };
+
 export const signupRequest = async (data) => {
     try {
         const response = await instance.post("/user/auth/signup", data);
