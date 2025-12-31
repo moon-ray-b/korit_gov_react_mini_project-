@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { IoMenu } from "react-icons/io5";
-import * as s from "./styles";
+import * as s from "./style";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../SideBar/SideBar";
 import { usePrincipalState } from "../../store/usePrincipalState";
